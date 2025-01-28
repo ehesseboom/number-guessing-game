@@ -1,6 +1,7 @@
 let secretNumber = Math.floor(Math.random() * 100) + 1;
 let guessCount = 0;
 const maxGuesses = 5; // Sets the maximum amount of guesses to 5
+let guesses = []; // Array to store the user's guesses
 
 const userInput = document.getElementById("user-input");
 const submitButton = document.getElementById("btn-submit");
@@ -25,12 +26,16 @@ function handleGuess(event) {
   }
 
   guessCount++;
+  guesses.push(userGuess); // Store the guess in the array
 
   console.log(`The user's guess: ` + userGuess);
   console.log(`Guesses left: ` + (maxGuesses - guessCount));
 
   // Display of the number of guesses left
   document.getElementById("guess-count").textContent = `Guesses left: ${maxGuesses - guessCount}`;
+
+  // Display of the guesses made by the user
+  document.getElementById("guesses").textContent = `Your guesses: ${guesses.join(", ")}`;
   
   // Clear the input field after the guess
   userInput.value = "";
@@ -58,6 +63,7 @@ function resetGame(event) {
   event.preventDefault(); // Stops the page from refreshing
   secretNumber = Math.floor(Math.random() * 100) + 1; // Generates a new number
   guessCount = 0;
+  guesses = [];
 
   console.log(`The secret number is: ` + secretNumber);
 
@@ -67,6 +73,9 @@ function resetGame(event) {
 
   // Reset the guess count display
   document.getElementById("guess-count").textContent = `Guesses left: ${maxGuesses}`;
+
+  // Reset the guesses made by the user
+  document.getElementById("guesses").textContent = `Your guesses: `;
 
   // Enable submit button
   submitButton.disabled = false;
@@ -106,12 +115,15 @@ function endGameFail() {
   resetButton.disabled = false;
 }
 
-function endGameSucces () {
+function endGameSucces() {
   const gameWonMessage = document.getElementById("msg-correct");
   const secretNumberSpan = document.getElementById("correct-number-succes");
 
   secretNumberSpan.textContent = secretNumber;
   gameWonMessage.classList.remove("hidden");
+
+  // Disable the submit button
+  submitButton.disabled = true;
   // Disables the input to make guesses
   userInput.disabled = true;
   // Enables the reset button to play a new game

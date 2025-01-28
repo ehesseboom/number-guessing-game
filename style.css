@@ -6,12 +6,19 @@
 
 button,
 input {
-  padding: 0.5rem 1rem;
   outline: none;
   border: none;
+  padding: 0.5rem 1rem;
   border-radius: 5px;
-  font-weight: 300;
-  width: 100%;
+  font-family: inherit;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+button:active {
+  opacity: 0.7;
 }
 
 input::-webkit-outer-spin-button,
@@ -20,93 +27,184 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-button:active {
-  opacity: 0.7;
-}
-
 body {
   height: 100vh;
-  background-color: rgb(30, 30, 30);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url(assets/images/background-image-2.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: rgb(255, 255, 255);
+  font-family: 'Jersey 10', sans-serif;
+}
 
+.container {
+  height: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem 2rem 1rem 2rem;
+  position: relative;
+}
+
+.text-wrapper {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-.container {
-  display: flex;
   gap: 1rem;
-  color: white;
 }
 
-@media screen and (max-width: 500px) {
-  .container {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .message-display {
-    height: 10rem;
-  }
+.text-wrapper h1 {
+  font-size: clamp(1rem, 10vw, 6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.3rem;
 }
+
+.text-wrapper .explanation {
+  text-align: center;
+  font-size: clamp(0.8rem, 4vw, 1.5rem);
+  width: 50%;
+}
+
+.game-function {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1rem;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: rgb(21, 32, 33);
+} 
 
 .message-display {
-  border: 2px solid rgb(50, 50, 50);
+  background-color: rgb(42, 53, 54);
   border-radius: 5px;
-  width: 20rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 20rem;
+}
+
+.message-display p {
+  font-size: 2rem;
+}
+
+.message-display p span {
+  font-size: 3rem;
 }
 
 .hidden {
   display: none;
-}
-
-span {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 2rem;
 }
 
 #correct-number-fail,
 #correct-number-succes {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: rgb(0, 140, 255);  
+  font-size: 3rem;
+  color: rgb(252, 207, 59);     
 }
 
 form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-  width: 7rem;
+  gap: 1rem;
 }
 
 form input {
-  font-size: 3.5rem;
-  display: grid;
-  place-items: center;
+  background-color: rgb(66, 159, 121);
+  text-align: center;
+  font-size: clamp(6rem, 15vw, 8rem);
+  width: 100%;
+  cursor:text;
+}
+
+form input::placeholder {
+  text-align: center;
+  color: #9bc4b3; 
 }
 
 .btn-submit {
-  background-color: rgb(0, 100, 255);
-  color: white;
-  cursor: pointer;
+  background-color: #0093FE;
 }
+
 #guess-count {
-  font-size: 0.8rem;
+  font-size: 2rem;
+  text-align: center;
+}
+
+#guesses {
+  font-size: 2rem;
+  align-self: center;
+  margin-left: 1rem;
 }
 
 .btn-reset {
-  background-color: rgb(50, 50, 50);
-  color: white;
-  cursor: pointer; 
-  justify-self:end;
+  background-color: #FF4C40; 
+}
+
+footer {
+  width: 100%;
+}
+
+footer p {
+  color: rgb(120, 120, 120);
+  text-align: center;
+}
+
+footer a {
+  position: absolute;
+  right: 1.5rem;
+  bottom: 1rem;
+  color: rgb(255, 255, 255);
+  font-size: 3rem;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+footer a:hover {
+  color: rgb(21, 32, 33);   
+}
+
+@media screen and (max-width: 675px) {
+  body {
+    height: auto;
+  }
+
+  .text-wrapper .explanation {
+    margin-bottom: 2rem;
+    width: 80%;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .game-function {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+    background-color: rgb(21, 32, 33, 0.8);
+    margin-bottom: 2rem;
+  }  
+  
+  #guesses {
+    grid-area: 2;
+    text-align: center;
+  }
+
+  footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem ;
+  }
+
+  footer a {
+    position: static;
+  }
 }

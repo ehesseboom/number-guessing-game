@@ -19,34 +19,62 @@
   </head>
   <body>
     <div class="container">
-      <div class="message-display">
-        <p class="hidden" id="msg-high">
-          <span>Too high!</span><br />Try again.
-        </p>
-        <p class="hidden" id="msg-low"><span>Too low!</span><br />Try again.</p>
-        <p class="hidden" id="msg-correct">
-          <span>Congrats! &#127881;</span><br />You found the correct number:
-          <span id="correct-number-succes"></span>
-        </p>
-        <p class="hidden" id="msg-gameover">
-          <span>Game over!</span><br />The correct number was
-          <span id="correct-number-fail"></span>.
+      <div class="text-wrapper">
+        <h1>Guess The Number!</h1>
+        <p class="explanation">
+          Can you guess the secret number between 1-100 within 5 tries? Enter
+          your number and click submit to make a guess. At the end of the game
+          click the reset button to try again.
         </p>
       </div>
-      <form action="">
-        <input
-          class="user-input"
-          id="user-input"
-          type="number"
-          min="1"
-          max="100"
-          step="1"
-          required
-        />
-        <button class="btn-submit" id="btn-submit">Submit</button>
-        <p id="guess-count">Guesses left: 5</p>
+
+      <section class="game-function">
+        <div class="message-display">
+          <p class="hidden" id="msg-high">
+            <span>Too high!</span><br />Try again.
+          </p>
+          <p class="hidden" id="msg-low">
+            <span>Too low!</span><br />Try again.
+          </p>
+          <p class="hidden" id="msg-correct">
+            <span>Congrats!</span><br />You found the correct number:
+            <span id="correct-number-succes"></span>
+          </p>
+          <p class="hidden" id="msg-gameover">
+            <span>Game over!</span><br />The correct number was
+            <span id="correct-number-fail"></span>.
+          </p>
+        </div>
+
+        <form action="">
+          <input
+            class="user-input"
+            id="user-input"
+            type="number"
+            min="1"
+            max="100"
+            step="1"
+            placeholder="00"
+            required
+          />
+          <button class="btn-submit" id="btn-submit">Submit</button>
+          <p id="guess-count">Guesses left: 5</p>
+        </form>
+
+        <p id="guesses">Your guesses:</p>
         <button class="btn-reset" id="btn-reset">Reset</button>
-      </form>
+      </section>
+      <footer>
+        <a
+          href="https://github.com/ehesseboom?tab=repositories"
+          target="_blank"
+          title="Check out my Github!"
+          ><i class="ri-github-fill"></i
+        ></a>
+        <p class="credits">
+          &#174;2025 | Made by Ennio Esseboom. All rights reserved.
+        </p>
+      </footer>
     </div>
 
     <script src="app.js"></script>
