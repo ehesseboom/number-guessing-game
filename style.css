@@ -87,24 +87,24 @@ body {
   align-items: center;
   text-align: center;
   height: 20rem;
+  padding: 1rem;
 }
 
 .message-display p {
-  font-size: 2rem;
+  font-size: 3rem;
 }
 
 .message-display p span {
-  font-size: 3rem;
+  font-size: 4rem;
 }
 
 .hidden {
   display: none;
-  font-size: 2rem;
 }
 
-#correct-number-fail,
-#correct-number-succes {
-  font-size: 3rem;
+#secret-number-fail,
+#secret-number-succes {
+  font-size: 5rem;
   color: rgb(252, 207, 59);     
 }
 
