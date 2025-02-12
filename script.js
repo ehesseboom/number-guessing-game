@@ -13,7 +13,7 @@ submitButton.addEventListener("click", handleGuess);
 resetButton.addEventListener("click", resetGame);
 userInput.addEventListener("input", validateInput);
 
-console.log(`The secret number is: ` + secretNumber);
+// console.log(`The secret number is: ` + secretNumber);
 
 function handleGuess(event) {
   event.preventDefault(); // Stops the page from refreshing
@@ -28,8 +28,8 @@ function handleGuess(event) {
   guessCount++;
   guesses.push(userGuess); // Store the guess in the array
 
-  console.log(`The user's guess: ` + userGuess);
-  console.log(`Guesses left: ` + (maxGuesses - guessCount));
+  // console.log(`The user's guess: ` + userGuess);
+  // console.log(`Guesses left: ` + (maxGuesses - guessCount));
 
   // Display of the number of guesses left
   document.getElementById("guess-count").textContent = `Guesses left: ${maxGuesses - guessCount}`;
@@ -65,7 +65,7 @@ function resetGame(event) {
   guessCount = 0;
   guesses = [];
 
-  console.log(`The secret number is: ` + secretNumber);
+  // console.log(`The secret number is: ` + secretNumber);
 
   // Clear input and hide messages
   document.getElementById("user-input").value = "";
